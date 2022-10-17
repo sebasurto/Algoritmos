@@ -4,7 +4,7 @@ def loadFile (route):
   f=open(route,"r")
   temp=f.readlines()
   data = temp[0].split(",")
-  print(data)
+  #print(data)
   f.close()
   return data
 
@@ -64,11 +64,13 @@ def convertListToInt (list):
  return listNum  
   
 #main
-inicio = time.time()
-data =loadFile ("500.csv")
-data =convertListToInt (data)
-print (data)
-mergeSort(data,0,len(data)-1)
-fin = time.time()
-print(fin-inicio)
-print (data)
+entradas = ["100","500","1000","5000","10000"]
+for i in entradas:
+  data =loadFile (i +".csv")
+  data =convertListToInt (data)
+  inicio = time.time()
+  mergeSort(data,0,len(data)-1)
+  fin = time.time()
+  print("Con "+i+ " datos:\n",(fin-inicio))
+
+#print (data)
